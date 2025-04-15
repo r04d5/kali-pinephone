@@ -1,11 +1,20 @@
-[bootimg]
-base = 0x0
-kernel = 0x8000
-ramdisk = 0x1000000
-second = 0
-tags = 0x100
-pagesize = 4096
+# Arquivo de configuração para dispositivos baseados em Qualcomm Snapdragon 750G (SM7225)
+# Define parâmetros específicos para o bootloader e configurações de dispositivos
 
+# Configuração da imagem de boot para o chipset Snapdragon 750G
+# Estes valores são específicos para o formato de imagem de boot do Android
+[bootimg]
+base = 0x0                # Endereço base para carregamento na memória
+kernel = 0x8000           # Offset do kernel em relação ao endereço base
+ramdisk = 0x1000000       # Offset do ramdisk (initrd) em relação ao endereço base
+second = 0                # Offset da segunda etapa do bootloader (não utilizado)
+tags = 0x100              # Offset para os tags do kernel
+pagesize = 4096           # Tamanho da página de memória em bytes
+
+# Configurações específicas para cada modelo de dispositivo
+# Cada entrada define um dispositivo suportado com suas particularidades
+
+# Fairphone 4 - smartphone modular com foco em sustentabilidade e reparabilidade
 [[device]]
-vendor = "fairphone"
-model = "fp4"
+vendor = "fairphone"      # Fabricante do dispositivo
+model = "fp4"             # Modelo/codinome do dispositivo

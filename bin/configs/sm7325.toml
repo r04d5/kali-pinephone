@@ -1,13 +1,22 @@
-[bootimg]
-version = 2
-base = 0x0
-kernel = 0x8000
-ramdisk = 0x01000000
-dtb = 0x01f00000
-second = 0
-tags = 0x100
-pagesize = 4096
+# Arquivo de configuração para dispositivos baseados em Qualcomm Snapdragon 778G (SM7325)
+# Define parâmetros específicos para o bootloader e configurações de dispositivos
 
+# Configuração da imagem de boot para o chipset Snapdragon 778G
+# Estes valores são específicos para o formato de imagem de boot do Android
+[bootimg]
+version = 2               # Versão do formato da imagem de boot (versão 2 suporta DTB separado)
+base = 0x0                # Endereço base para carregamento na memória
+kernel = 0x8000           # Offset do kernel em relação ao endereço base
+ramdisk = 0x01000000      # Offset do ramdisk (initrd) em relação ao endereço base
+dtb = 0x01f00000          # Offset da Device Tree Blob em relação ao endereço base
+second = 0                # Offset da segunda etapa do bootloader (não utilizado)
+tags = 0x100              # Offset para os tags do kernel
+pagesize = 4096           # Tamanho da página de memória em bytes
+
+# Configurações específicas para cada modelo de dispositivo
+# Cada entrada define um dispositivo suportado com suas particularidades
+
+# Nothing Phone 1 (codinome "spacewar") - primeiro smartphone da marca Nothing
 [[device]]
-vendor = "nothing"
-model = "spacewar"
+vendor = "nothing"        # Fabricante do dispositivo
+model = "spacewar"        # Modelo/codinome do dispositivo

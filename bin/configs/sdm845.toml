@@ -1,37 +1,50 @@
+# Arquivo de configuração para dispositivos baseados em Qualcomm Snapdragon 845
+# Define parâmetros específicos para o bootloader e configurações de dispositivos
+
+# Configuração da imagem de boot para o chipset Snapdragon 845
+# Estes valores são específicos para o formato de imagem de boot do Android
 [bootimg]
-base = 0x0
-kernel = 0x8000
-ramdisk = 0x1000000
-second = 0
-tags = 0x100
-pagesize = 4096
+base = 0x0                # Endereço base para carregamento na memória
+kernel = 0x8000           # Offset do kernel em relação ao endereço base
+ramdisk = 0x1000000       # Offset do ramdisk (initrd) em relação ao endereço base
+second = 0                # Offset da segunda etapa do bootloader (não utilizado)
+tags = 0x100              # Offset para os tags do kernel
+pagesize = 4096           # Tamanho da página de memória em bytes
 
+# Configurações específicas para cada modelo de dispositivo
+# Cada entrada define um dispositivo suportado com suas particularidades
+
+# OnePlus 6 (codinome "enchilada")
 [[device]]
-vendor = "oneplus"
-model = "enchilada"
-append = "console=ttyMSM0,115200"
+vendor = "oneplus"        # Fabricante do dispositivo
+model = "enchilada"       # Modelo/codinome do dispositivo
+append = "console=ttyMSM0,115200"  # Parâmetros adicionais para a linha de comando do kernel
 
+# OnePlus 6T (codinome "fajita")
 [[device]]
 vendor = "oneplus"
 model = "fajita"
 append = "console=ttyMSM0,115200"
 
+# SHIFT6mq (codinome "axolotl")
 [[device]]
 vendor = "shift"
 model = "axolotl"
 append = "console=ttyMSM0,115200"
 
+# Xiaomi Pocophone F1 (codinome "beryllium") - variante com display EBBG
 [[device]]
 vendor = "xiaomi"
 model = "beryllium"
-variant = "ebbg"
+variant = "ebbg"          # Variante específica do dispositivo (tipo de display)
 
+# Xiaomi Pocophone F1 (codinome "beryllium") - variante com display Tianma
 [[device]]
 vendor = "xiaomi"
 model = "beryllium"
-variant = "tianma"
+variant = "tianma"        # Variante específica do dispositivo (tipo de display)
 
+# Xiaomi Mi MIX 2S (codinome "polaris")
 [[device]]
 vendor = "xiaomi"
 model = "polaris"
-
